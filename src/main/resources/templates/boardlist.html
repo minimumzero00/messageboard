@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>자유 게시판 리스트</title>
+</head>
+
+<style>
+
+.layout {
+width : 500px;
+margin : 0 auto;
+margin-top : 40px;
+}
+
+</style>
+
+<body>
+
+    <div class="layout">
+        <table>
+            <thead>
+                <tr>
+                    <th>글번호</th>
+                    <th>제목</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                <tr th:each="Messageboard : ${list}"> <!-- each: 반복문, list(Controller)에서 Messageboard가 없어질때까지 반복 -->
+                    <td th:text="${Messageboard.id}">1</td> <!-- Messageboard 안에 있는 id -->
+                    <!-- href: a태그에 링크를 걸어줌(게시글 리스트에 링크) -->
+                    <td>
+                        <a th:text="${Messageboard.title}" th:href="@{/board/view(id=${Messageboard.id})}"></a>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+</body>
+</html>

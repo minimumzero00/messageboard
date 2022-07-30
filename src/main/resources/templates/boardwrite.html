@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>자유게시글 작성 폼</title>
+    <title>자유 게시판</title>
 </head>
 
 <style>
@@ -27,9 +27,10 @@
 
 <body>
 <div class="layout">
-    <form action="/board/writepro" method="post">
+    <form action=" /board/writepro" method="post" enctype="multipart/form-data">
         <input name="title" type="text"> <!-- input: 입력을 받는 테그 -->
         <textarea name="content"></textarea>
+        <input type="file" name="file">
         <button type="submit">작성</button> <!-- 버튼 누르면 form 안에 있는 데이터가 '/board/writedo' 주소로 넘어감 -->
     </form>
 </div>

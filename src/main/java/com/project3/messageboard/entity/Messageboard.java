@@ -18,4 +18,8 @@ public class Messageboard { //DB이름과 같게 만들어줌
     private String title;
 
     private String content;
+
+    private String filename;
+
+    private String filepath;
 }
