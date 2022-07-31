@@ -3,6 +3,8 @@ package com.project3.messageboard.service;
 import com.project3.messageboard.entity.Messageboard;
 import com.project3.messageboard.repository.MessageBoardRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -34,8 +36,8 @@ public class MessageBoardService {
     }
 
     // 게시글 리스트 처리
-    public List<Messageboard> messageboardList() {
-        return  messageBoardRepository.findAll(); //List<Messageboard> 반환
+    public Page<Messageboard> messageboardList(Pageable pageable) {
+        return  messageBoardRepository.findAll(pageable); //List<Messageboard> 반환
     }
 
     // 특정 게시글 불러오기
@@ -43,10 +45,10 @@ public class MessageBoardService {
         return messageBoardRepository.findById(id).get();
     }
 
-//    public Page<Board> bordSearchList(String searchKeyword, Pageable pageable){
-//
-//        return boardRepository.findByTitleContaining(searchKeyword, pageable);
-//    }
+    public Page<Messageboard> bordSearchList(String searchKeyword, Pageable pageable){
+
+        return messageBoardRepository.findByTitleContaining(searchKeyword, pageable);
+    }
 
     // 특정 게시글 삭제
     public void boardDelete(Integer id) {
