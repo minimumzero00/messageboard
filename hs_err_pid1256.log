@@ -27,7 +27,7 @@
 
 ---------------  S U M M A R Y ------------
 
-Command Line: -javaagent:C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2022.1.1\lib\idea_rt.jar=60170:C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2022.1.1\bin -Dfile.encoding=UTF-8 com.project3.messageboard.MessageboardApplication
+Command Line: -javaagent:C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2022.1.1\lib\idea_rt.jar=60170:C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2022.1.1\bin -Dfile.encoding=UTF-8 com.project3.messageboard.BoardApplication
 
 Host: Intel(R) Core(TM) i5-8400 CPU @ 2.80GHz, 6 cores, 7G,  Windows 10 , 64 bit Build 19041 (10.0.19041.1706)
 Time: Tue Jul 12 03:46:49 2022  Windows 10 , 64 bit Build 19041 (10.0.19041.1706) elapsed time: 2.364677 seconds (0d 0h 0m 2s)
@@ -590,7 +590,7 @@ symbol engine: initialized successfully - sym options: 0x614 - pdb path: .;C:\Pr
 
 VM Arguments:
 jvm_args: -javaagent:C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2022.1.1\lib\idea_rt.jar=60170:C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2022.1.1\bin -Dfile.encoding=UTF-8 
-java_command: com.project3.messageboard.MessageboardApplication
+java_command: com.project3.messageboard.BoardApplication
 java_class_path (initial): C:\Users\0\Desktop\Project\messageboard\messageboard\messageboard\out\production\classes;C:\Users\0\Desktop\Project\messageboard\messageboard\messageboard\out\production\resources;C:\Users\0\.gradle\caches\modules-2\files-2.1\org.springframework.boot\spring-boot-starter-data-jpa\2.6.9\c9e0dc1712fdd1e8fab357e0446e36b2ea334932\spring-boot-starter-data-jpa-2.6.9.jar;C:\Users\0\.gradle\caches\modules-2\files-2.1\org.springframework.boot\spring-boot-starter-thymeleaf\2.6.9\186c0b446bc790b40e2bc5409ea954415baa65c8\spring-boot-starter-thymeleaf-2.6.9.jar;C:\Users\0\.gradle\caches\modules-2\files-2.1\org.springframework.boot\spring-boot-starter-web\2.6.9\5e7b4f48950c28be544641924a32f682edc9ab2e\spring-boot-starter-web-2.6.9.jar;C:\Users\0\.gradle\caches\modules-2\files-2.1\org.springframework.boot\spring-boot-starter-aop\2.6.9\774b3b248676210caaf87ec77e9a494d8545b7ae\spring-boot-starter-aop-2.6.9.jar;C:\Users\0\.gradle\caches\modules-2\files-2.1\org.springframework.boot\spring-boot-starter-jdbc\2.6.9\22253341a9af587b86528384a0ed63554135647e\spring-boot-starter-jdbc-2.6.9.jar;C:\Users\0\.gradle\caches\modules-2\files-2.1\jakarta.transaction\jakarta.transaction-api\1.3.3\c4179d48720a1e87202115fbed6089bdc4195405\jakarta.transaction-api-1.3.3.jar;C:\Users\0\.gradle\caches\modules-2\files-2.1\jakarta.persistence\jakarta.persistence-api\2.2.3\8f6ea5daedc614f07a3654a455660145286f024e\jakarta.persistence-api-2.2.3.jar;C:\Users\0\.gradle\caches\modules-2\files-2.1\org.hibernate\hibernate-core\5.6.9.Final\8ec2c7b13de2fbcb19feddfb3a30932bb6a8228a\hibernate-core-5.6.9.Final.jar;C:\Users\0\.gradle\caches\modules-2\files-2.1\org.springframework.data\spring-data-jpa\2.6.5\f6a1c9baea0871f9cbae51b767f5c0405f1ba2ec\spring-data-jpa-2.6.5.jar;C:\Users\0\.gradle\caches\modules-2\files-2.1\org.springframework\spring-aspects\5.3.21\9e8271b86c5be0388c2c34f2c5c3d070af06cd2\spring-aspects-5.3.21.jar;C:\Users\0\.gradle\caches\modules-2\files-2.1\org.springframework.boot\s
 Launcher Type: SUN_STANDARD
 

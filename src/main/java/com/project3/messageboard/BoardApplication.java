@@ -2,12 +2,14 @@ package com.project3.messageboard;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.data.jpa.repository.config.EnableJpaAuditing;
 
+@EnableJpaAuditing
 @SpringBootApplication
-public class MessageboardApplication {
+public class BoardApplication {
 
 	public static void main(String[] args) {
-		SpringApplication.run(MessageboardApplication.class, args);
+		SpringApplication.run(BoardApplication.class, args);
 	}
 
 }
