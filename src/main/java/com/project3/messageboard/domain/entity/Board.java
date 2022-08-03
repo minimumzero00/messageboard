@@ -18,8 +18,8 @@ import java.time.LocalDateTime;
 @EntityListeners(AuditingEntityListener.class)
 public class Board {
 
-    @Id
-    @GeneratedValue
+    @Id //primary key
+    @GeneratedValue//(strategy= GenerationType.IDENTITY)
     private Long id;
 
     @Column(length = 10, nullable = false)
