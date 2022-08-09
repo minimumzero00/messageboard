@@ -23,13 +23,17 @@
         <p class="card-text"> <!-- card 글자 -->
           <small class="text-muted" th:text="${#temporals.format(post.createdDate, 'yyyy-MM-dd HH:mm')}"></small>
         </p>
+
         <p class="card-text" th:text="${post.content}"></p> <!-- 내용 -->
+        <div th:if="${post2.origFilename != ''}">
+          <strong>첨부파일 : </strong>
+          <a class="card-text" th:href="@{'/download/' + ${post.fileId}}" th:text="${post2.origFilename}"></a>
+        </div>
       </div>
     </div>
 
     <div class="row mt-3">
       <div class="col-auto mr-auto"></div> <!-- col:자동, margin-right:자동 -->
-
       <div class="col-auto">
         <!-- 수정 버튼 누름 ex) localhost:8080/post/edit/1 -->
         <a class="btn btn-info" th:href="@{'/post/edit/' + ${post.id}}" role="button">수정</a>

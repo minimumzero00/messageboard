@@ -33,6 +33,9 @@ public class Board {
     @Column(columnDefinition = "TEXT", nullable = false)
     private String content;
 
+    @Column
+    private Long fileId;
+
     @CreatedDate //Entity가 처음 저장될 때 생성일을 주입하는 어노테이션
     @Column(updatable = false)
     private LocalDateTime createdDate;
@@ -41,10 +44,11 @@ public class Board {
     private LocalDateTime modifiedDate;
 
     @Builder //빌더패턴 클래스를 생성해주는 어노테이션
-    public Board(Long id, String author, String title, String content) {
+    public Board(Long id, String author, String title, String content, Long fileId) {
         this.id = id;
         this.author = author;
         this.title = title;
         this.content = content;
+        this.fileId = fileId;
     }
 }

@@ -1,0 +1,24 @@
+[ 설치항목 ]
+- tomcat
+- eclipse
+- teamviewer
+- node.js
+  위치: C:\Program Files\nodejs\
+- visual studio code
+  위치: C:\Users\0\AppData\Local\Programs\Microsoft VS Code
+- Arduion
+  위치: C:\Program Files (x86)\Arduino
+- android studio
+  위치: C:\Program Files\Android\Android Studio
+- NVM setup
+  위치: C:\Users\0\AppData\Roaming\nvm
+- anaconda
+  위치: C:\Users\0\anaconda3
+- Git-2.36.0-64-bit
+  위치: C:\Program Files\Git
+- mysql
+  위치: C:\Program Files\MySQL
+- intellij
+  위치: C:\Program Files\JetBrains\IntelliJ IDEA Community Edition 2022.1.1
+- mariadb
+  위치: C:\Program Files\MariaDB 10.6\data\

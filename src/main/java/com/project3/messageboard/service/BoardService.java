@@ -7,7 +7,7 @@ import com.project3.messageboard.domain.entity.Board;
 import com.project3.messageboard.domain.repository.BoardRepository;
 import com.project3.messageboard.dto.BoardDto;
 import org.springframework.stereotype.Service;
-
+//Transactional: 선언적 트랜잭션이라 부르며, 트랜잭션을 적용하는 어노테이션
 import javax.transaction.Transactional;
 import java.util.ArrayList;
 import java.util.List;
@@ -21,7 +21,7 @@ public class BoardService {
         this.boardRepository = boardRepository;
     }
 
-    @Transactional //선언적 트랜잭션이라 부르며, 트랜잭션을 적용하는 어노테이션
+    @Transactional
     public Long savePost(BoardDto boardDto) {
         //save(): JpaRepository에 정의된 메서드로, DB에 INSERT, UPDATE를 담당
         return boardRepository.save(boardDto.toEntity()).getId();
@@ -58,8 +58,17 @@ public class BoardService {
                 .author(board.getAuthor())
                 .title(board.getTitle())
                 .content(board.getContent())
+                .fileId(board.getFileId())
                 .createdDate(board.getCreatedDate())
                 .build();
         return boardDto;
+    }
+
+    //게시물 삭제 버튼 누름
+    //1번 글에서 '삭제' 버튼을 클릭하면 /post/1로 접속
+    @Transactional
+    public void deletePost(Long id) {
+        //deleteById(): PK값을 where 조건으로 하여, 데이터를 삭제하기 위한 메서드이며, JpaRepository 인터페이스에서 정의
+        boardRepository.deleteById(id);
     }
 }
