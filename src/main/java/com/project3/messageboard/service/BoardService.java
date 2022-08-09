@@ -27,6 +27,8 @@ public class BoardService {
         return boardRepository.save(boardDto.toEntity()).getId();
     }
 
+    //게시글 목록 가져오기
+    //Repository에서 모든 데이터를 조회하여, BoardDto List에 데이터를 넣어 반환
     @Transactional
     public List<BoardDto> getBoardList() {
         List<Board> boardList = boardRepository.findAll();
@@ -45,8 +47,10 @@ public class BoardService {
         return boardDtoList;
     }
 
+    //게시글 클릭 시 게시물 내용 화면 출력
     @Transactional
     public BoardDto getPost(Long id) {
+        //findById(): PK 값을 where 조건으로 하여, 데이터를 가져오기 위한 메서드
         Board board = boardRepository.findById(id).get();
 
         BoardDto boardDto = BoardDto.builder()
