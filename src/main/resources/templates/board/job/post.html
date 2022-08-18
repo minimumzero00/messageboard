@@ -1,0 +1,78 @@
+<!-- 게시물 등록 페이지 -->
+
+<!DOCTYPE html>
+<!-- 타임리프(Thymeleaf): 서버에서 클라이언트에게 응답할 브라우저 화면을 만들어주는 역할 -->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>게시판 - 글쓰기</title>
+    <!-- link: 외부 리소스 연결/ rel: 현재 문서와 외부 리소스 사이의 연관 관계/ stylesheet: 스타일시트로 사용 -->
+    <link rel="stylesheet" href="/webjars/bootstrap/4.5.0/css/bootstrap.min.css" /> <!-- css 링크 -->
+</head>
+
+<body>
+
+    <!--th:insert: 다른 페이지를 현재 페이지에 삽입하는 역할-->
+    <header th:insert="common/header.html"></header> <!-- 헤더 부분 삽입 -->
+
+    <div class="container">
+        <!-- 작성된 내용이 '/job/post'로 보내지는데 Controller에 'boardDto'로 담겨서 보내짐 -->
+        <!-- enctype: 인코딩 타입, 이진파일을 POST로 보내기 위해서는 multipart/form-data를 이용 -->
+        <form action="/job/post" method="post" enctype="multipart/form-data">
+
+            <div class="form-group row"> <!-- class="form-group row": 행으로 나열하기 위함 -->
+                <!-- col-sm-2: 768px 이하에서 세로로 표시 시작/ 1개의 칼럼 사용하며 넘어가면 새로운 줄에 배치 -->
+                <label for="inputTitle" class="col-sm-2 col-form-label"><strong>제목</strong></label>
+                <div class="col-sm-10">
+                    <input type="text" name="title" class="form-control" id="inputTitle" />
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="inputAuthor" class="col-sm-2 col-form-label"><strong>작성자</strong></label>
+                <div class="col-sm-10">
+                    <input type="text" name="author" class="form-control" id="inputAuthor" />
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="inputContent" class="col-sm-2 col-form-label"><strong>내용</strong></label>
+                <div class="col-sm-10">
+                    <textarea type="text" name="content" class="form-control" id="inputContent"></textarea>
+                </div>
+            </div>
+
+            <div class="form-group row">
+                <label for="inputFile" class="col-sm-2 col-form-label"><strong>첨부 파일</strong></label>
+                <div class="col-sm-10">
+                    <div class="custom-file" id="inputFile">
+                        <input name="file" type="file" class="custom-file-input" id="customFile" />
+                        <label class="custom-file-label" for="customFile">파일을 선택해 주세요.</label>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row"> <!-- class="row": 콘텐츠의 row(가로 열)를 작성하기 위한 컨테이너 -->
+                <div class="col-auto mr-auto"></div> <!-- col:자동, margin-right:자동 -->
+                <div class="col-auto">
+                    <!-- btn-primary: 파란색 버튼 -->
+                    <input class="btn btn-primary" type="submit" role="button" value="글쓰기" />
+                </div>
+            </div>
+
+        </form>
+    </div>
+
+    <!-- WebJars: 클라이언트에서 사용하는 웹라이브러리(jquery, bootstrap, React.js, Vue.js, Angular 등) 를 *JAR* 파일 안에 패키징한 것 -->
+    <script src="/webjars/jquery/3.5.1/jquery.min.js"></script> <!-- 부트 스트랩 사용 -->
+    <script src="/webjars/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+    <!-- input type file 커스텀 -->
+    <script>
+      $('.custom-file-input').on('change', function () {
+        var fileName = $(this).val().split('\\').pop();
+        $(this).siblings('.custom-file-label').addClass('selected').html(fileName);
+      });
+    </script>
+
+</body>
+</html>

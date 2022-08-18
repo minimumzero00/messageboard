@@ -1,18 +1,37 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org"> <!-- 타임리프를 적용할 HTML문서에 네임스페이스 추가 -->
 <head>
     <meta charset="UTF-8">
-    <title>게시판 - 헤더</title>
+    <title>헤더</title>
+    <link href="/CSS/maincss.css?after" rel="stylesheet">
 </head>
-<body>
 
-<div class="navbar navbar-dark bg-dark shadow-sm mb-3">
-    <div class="container d-flex justify-content-between">
-        <a href="/" class="navbar-brand d-flex align-items-center">
-            <strong>게시판</strong>
-        </a>
-    </div>
+<body class="headerbody">
+
+<div class="title">
+    <header><h1><a th:href="@{/main}">또린 게시판</a></h1></header>
 </div>
+
+<!-- 마이페이지 로그인 -->
+<div class="mypage">
+    <!-- href 태그는 현재 웹 사이트에서 주요한 지점으로 이동할 수 있는 네비게이션 역할을 담당하고 있는 태그 -->
+    <a href="#"> | 마이페이지</a>
+</div>
+
+<div class="login">
+    <a href="#">로그인</a>
+</div>
+
+<!--메뉴 바-->
+<nav>
+    <ul class="munubar">  <!-- 순서가 없는 리스트-->
+        <li class="nav-item"> <a th:href="@{/main}">메인</a> </li> <!-- 각각 목록의 태그-->
+        <li class="nav-item"> <a th:href="@{/free/list}">자유게시판</a> </li>
+        <li class="nav-item"> <a th:href="@{/study/list}">학업게시판</a> </li>
+        <li class="nav-item"> <a th:href="@{/job/list}">취업게시판</a> </li>
+        <li class="nav-item"> <a th:href="@{/news/list}">시사.이슈게시판</a> </li>
+    </ul>
+</nav>
 
 </body>
 </html>

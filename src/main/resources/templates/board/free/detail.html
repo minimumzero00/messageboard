@@ -1,0 +1,58 @@
+<!-- 게시글 조회 페이지 -->
+
+<!DOCTYPE html>
+<!-- 타임리프(Thymeleaf): 서버에서 클라이언트에게 응답할 브라우저 화면을 만들어주는 역할 -->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title th:text="@{'게시판 - ' + ${post.title}}"></title> <!-- ex) 게시판 - (title) -->
+    <link rel="stylesheet" href="/webjars/bootstrap/4.5.0/css/bootstrap.min.css" />
+    <!-- link: 외부 리소스 연결/ rel: 현재 문서와 외부 리소스 사이의 연관 관계/ stylesheet: 스타일시트로 사용 -->
+</head>
+
+<body>
+  <!--th:insert: 다른 페이지를 현재 페이지에 삽입하는 역할-->
+  <header th:insert="common/header.html"></header> <!-- 헤더 부분 삽입 -->
+
+  <div class="container">
+    <!-- card: 내용물 주위에 약간의 내부 여백이 있으면 경계가 있는 박스 상자 영역 -->
+    <div class="card">
+      <div class="card-body">
+        <!-- card 제목: ex) 제목 - 작성자 -->
+        <h5 class="card-title" th:text="@{${post.title} + ' - ' + ${post.author}}"></h5>
+        <p class="card-text"> <!-- card 글자 -->
+          <small class="text-muted" th:text="${#temporals.format(post.createdDate, 'yyyy-MM-dd HH:mm')}"></small>
+        </p>
+
+        <p class="card-text" th:text="${post.content}"></p> <!-- 내용 -->
+        <div th:if="${post2.origFilename != ''}">
+          <strong>첨부파일 : </strong>
+          <a class="card-text" th:href="@{'/free/download/' + ${post.fileId}}" th:text="${post2.origFilename}"></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="row mt-3">
+      <div class="col-auto mr-auto"></div> <!-- col:자동, margin-right:자동 -->
+      <div class="col-auto">
+        <!-- 수정 버튼 누름 ex) localhost:8080/post/edit/1 -->
+        <a class="btn btn-info" th:href="@{'/free/post/edit/' + ${post.id}}" role="button">수정</a>
+      </div>
+
+      <div class="col-auto">
+        <!-- 삭제 버튼 누름 -->
+        <form id="delete-form" th:action="@{'/free/post/' + ${post.id}}" method="post">
+          <!-- type="hidden": 화면에서 입력한 어떠한 폼도 보이지 않고 숨겨진 value 값을 서버로 전송되는 요소 -->
+          <!-- form 태그의 method는 post이지만, 실제로는 컨트롤러에서 delete로 매핑-->
+          <input type="hidden" name="_method" value="delete" />
+          <button id="delete-btn" type="submit" class="btn btn-danger">삭제</button>
+        </form>
+      </div>
+    </div>
+
+  </div>
+  <!-- WebJars: 클라이언트에서 사용하는 웹라이브러리(jquery, bootstrap, React.js, Vue.js, Angular 등) 를 *JAR* 파일 안에 패키징한 것 -->
+  <script src="/webjars/jquery/3.5.1/jquery.min.js"></script>
+  <script src="/webjars/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+</body>
+</html>

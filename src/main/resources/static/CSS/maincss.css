@@ -1,0 +1,81 @@
+.headerbody {
+margin: 0; /* body의 바깥 여백을 없앰 */
+}
+
+.title h1 {
+margin-left:10px;
+}
+
+.title a {
+margin-right:10px; /* 마우스 커서를 pointer 모양 */
+cursor: pointer; /* 밑줄 없앰 */
+text-decoration: none;
+color: black;
+}
+
+.mypage a{
+float:right;
+margin-right:10px; /* 마우스 커서를 pointer 모양 */
+cursor: pointer; /* 밑줄 없앰 */
+text-decoration: none;
+color: black;
+}
+
+.login a{
+float:right;
+margin-right:10px;
+cursor: pointer;
+text-decoration: none;
+color: black;
+}
+
+.munubar {
+display: flex; /* flex 박스로 보이기- 가로로 나란히 정렬 */
+justfy-content:space-between; /* 중심을 잡고 공간 분배 */
+align-item: center;
+width: 100%;
+padding: 8px 12px;
+background-color: #A8C2E2; /* 메뉴 배경색 */
+list-style-type: none; /* 목록 기호 제거 */
+}
+
+/* 메뉴에 마우스 올렸을 때 */
+.nav-item:hover {
+background-color: #C1D3EB;
+border-radius: 4px;
+color: white;
+}
+
+.nav-item:hover > a { /* 메뉴에 마우스 올리면 글자색 흰색 */
+color: white;
+}
+
+.nav-item {
+padding: 15px;
+cursor: pointer;
+}
+
+.nav-item a {
+text-align: center;
+text-decoration: none;
+color: black;
+}
+
+/* 페이지가 좁아지면 */
+@media screen and (max-width: 600px) {
+    .munubar{
+    flex-direction:column; /* 세로로 정렬 */
+    align-items: center;
+    }
+
+    .nav-item {
+    width: 100%;
+    text-align: center;
+    }
+}
+
+img {
+display: block;
+margin: 0 auto; /* 세로 가로 */
+width: 95%;
+}

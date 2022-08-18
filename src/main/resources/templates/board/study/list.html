@@ -1,0 +1,71 @@
+<!-- 게시물 목록 페이지 -->
+
+<!DOCTYPE html>
+<!-- 타임리프(Thymeleaf): 서버에서 클라이언트에게 응답할 브라우저 화면을 만들어주는 역할 -->
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>게시판 - 목록</title>
+    <!-- link: 외부 리소스 연결/ rel: 현재 문서와 외부 리소스 사이의 연관 관계/ stylesheet: 스타일시트로 사용 -->
+    <link rel="stylesheet" href="/webjars/bootstrap/4.5.0/css/bootstrap.min.css" /> <!-- css 링크 -->
+</head>
+
+<body>
+
+  <!--th:insert: 다른 페이지를 현재 페이지에 삽입하는 역할-->
+  <header th:insert="common/header.html"></header> <!-- 헤더 부분 삽입 -->
+
+  <div class="container">
+    <table class="table">
+
+      <thead class="thead-light"> <!-- thead-light: 테이블 헤더 색 -->
+      <tr class="text-center"> <!-- text-center: 텍스트 중앙 정렬 -->
+        <th scope="col">#</th> <!-- scope="col": 해당 셀이 열을 위한 헤더 셀임을 명시 -->
+        <th scope="col">제목</th>
+        <th scope="col">작성자</th>
+        <th scope="col">작성일</th>
+      </tr>
+      </thead>
+
+      <tbody>
+      <!-- th:each: 반복문 -->
+      <!-- postList: 컨트롤러가 넘겨주는 변수, 원소는 post 변수로 사용하여 각 속성을 사용할 수 있음 -->
+      <tr class="text-center" th:each="post : ${postList}">
+        <th scope="row"> <!-- scope="row": 해당 셀이 행을 위한 헤더 셀임을 명시 -->
+          <!-- th:text: 태그 안의 텍스트를 서버에서 전달 받은 값에 따라 표현하고자 할 때 사용 -->
+          <span th:text="${post.id}"></span>
+        </th>
+        <td>
+          <!-- th:href: 링크 -->
+          <a th:href="@{'/study/post/' + ${post.id}}"> <!-- 글 제목을 누르면 상세페이지로 이동 (ex) localhost:8080/post/1) -->
+            <span th:text="${post.title}"></span>
+          </a>
+        </td>
+        <td>
+          <span th:text="${post.author}"></span>
+        </td>
+        <td>
+          <!-- temporals.format(): 메서드를 사용하여 날짜를 포맷팅하는 방법 -->
+          <!-- createdDate는 LocalDateTime 타입이기 때문에 java.util.Date를 사용하는 #dates.format()를 사용하지 않음 -->
+          <span th:text="${#temporals.format(post.createdDate, 'yyyy-MM-dd HH:mm')}"></span>
+        </td>
+      </tr>
+      </tbody>
+
+    </table>
+
+    <div class="row"> <!-- class="row": 콘텐츠의 row(가로 열)를 작성하기 위한 컨테이너 -->
+      <div class="col-auto mr-auto"></div> <!-- col:자동, margin-right:자동 -->
+      <div class="col-auto">
+        <!-- btn-primary: 파란색 버튼 -->
+        <a class="btn btn-primary" th:href="@{/study/post}" role="button">글쓰기</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- WebJars: 클라이언트에서 사용하는 웹라이브러리(jquery, bootstrap, React.js, Vue.js, Angular 등) 를 *JAR* 파일 안에 패키징한 것 -->
+  <script src="/webjars/jquery/3.5.1/jquery.min.js"></script>
+  <script src="/webjars/bootstrap/4.5.0/js/bootstrap.min.js"></script>
+
+</body>
+</html>
